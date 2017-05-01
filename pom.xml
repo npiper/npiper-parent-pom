@@ -5,11 +5,10 @@
     <!-- Template Project file for my projects - based on https://maven.apache.org/pom.html -->
   
     <groupId>com.solveapuzzldev</groupId>
-    <artifactId>parent.bitbucket</artifactId>
+    <artifactId>parent.pom</artifactId>
     <!-- Default starting version is 0-SNAPSHOT -->
     <version>0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
    <!--
     <parent/>
     <dependencies/>
@@ -18,10 +17,10 @@
      <!-- Modules, sub-modules & properties -->
     <modules/>
   <properties>
-      <project.name>PROJECT.NAME</project.name>
+      <project.name>npiper-parent-pom</project.name>
       <!-- Enforces these minimum versions on build -->
       <miniumumMavenVersion>3.1</miniumumMavenVersion>
-      <minimumJavaVersion>1.7</minimumJavaVersion>
+      <minimumJavaVersion>1.8</minimumJavaVersion>
 
       <!-- Default maven plugin versions -->
       <mavenReleasePluginVersion>2.5.3</mavenReleasePluginVersion>
@@ -33,7 +32,17 @@
   <!-- BUILD SETTINGS --> 
 
 <build>
-    <pluginManagement>
+
+<!-- Extension : s3 wagon for repo --> 
+<extensions>
+      <extension>
+        <groupId>org.kuali.maven.wagons</groupId>
+        <artifactId>maven-s3-wagon</artifactId>
+        <version>1.2.1</version>
+      </extension>
+    </extensions>
+
+   <pluginManagement>
       <plugins>
 
         <plugin>
@@ -148,38 +157,37 @@
   <!-- PROJECT INFORMATION -->
 
     <!-- Name of the project or module , typically more than just the artifactId i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but useful. -->
-  <name>${project.name}</name>
+  <name>npiper-parent-pom</name>
 
   <!-- Description of a project is always good, helps POM readers -->
   <description>
-    PROJECT.DESCRIPTION
+    PROJECT.DESCRIPTION - parent pom for solveapuzzle projects
   </description>
 
   <!-- URL is helpful for maintenance on where to find the source code, project site. -->
-  <url>https://bitbucket.org/n_piper/${project.name}/</url>
+  <url>https:///n_piper/${project.name}/</url>
   <!-- When did this all start...? -->
-  <inceptionYear>PROJECT.STARTYEAR</inceptionYear>
+  <inceptionYear>2017</inceptionYear>
 
-    <!-- I'm choosing Apache, permissive, but patent rights for contributors, to users.
-   http://choosealicense.com/ -->
    <!-- legal documents defining how and when a project (or parts of a project) may be used -->
   <licenses>
     <license>
-    <name>Apache License, Version 2.0</name>
-    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    <distribution>repo</distribution>
-    </license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>    
+
+</license>
   </licenses>
 
   <!-- Typically only core dev team, leads, buildmasters. If the person should not be contacted about the project or initiative, they need not be listed here -->
     <developers>
     <developer>
-      <id>n_piper</id>
+      <id>npiper</id>
       <name>Neil Piper</name>
       <email>solveapuzzledev@gmail.com</email>
       <url>https://www.linkedin.com/in/piperneil</url>
       <!--
-      <organization>ACME</organization>
+      <organization>SOLVEAPUZZLE</organization>
       <organizationUrl>http://www.example.com</organizationUrl>
     -->
       <roles>
@@ -187,6 +195,9 @@
         <role>developer</role>
       </roles>
       <timezone>Australia/Melbourne</timezone>
+<properties>
+        <picUrl>https://avatars3.githubusercontent.com/u/436314</picUrl>
+      </properties>
     </developer>
   </developers>
 
@@ -195,8 +206,8 @@
 
   <!-- Where / Which system to raise issues in, can be used by plugins but typically for project / site documentation. -->
   <issueManagement>
-    <system>bitbucket</system>
-    <url>https://bitbucket.org/n_piper/{project.name}/issues</url>
+    <system>github</system>
+    <url>https://github.com/npiper/${project.name}/issues</url>
   </issueManagement>
 
   <!-- Not bothering with this, using VM's and the artifactory build is more relevant -->
@@ -220,40 +231,41 @@
   <!-- Software configuration management details -->
   <!-- Critical for the mvn:release plugin & process, where to find the source code. -->
     <scm>
-        <connection>scm:git:https://git@bitbucket.org/npiper/${project.name}.git</connection>
-        <developerConnection>scm:git:https://git@bitbucket.org/npiper/${project.name}.git</developerConnection>
-        <url>https://bitbucket.org/npiper/${project.name}</url>
-        <tag>HEAD</tag>
-    </scm>
+<url>https://github.com/npiper/${project.name}</url>
+		<connection>scm:git:git://github.com/npiper/${project.name}.git</connection>
+		<developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection>    
+
+</scm>
 
 <!-- REPOSITORIES & PLUGIN REPOSITORIES -->
-  <repositories/>
+  <repositories>
+   <!-- release repo -->
+   <repository>
+      <id>solveapuzzle-repo</id>
+      <url>s3://solveapuzzle-repo/release</url>
+    </repository>
+  </repositories>
   <pluginRepositories/>
 
 
     <!--manages the distribution of the artifact and supporting files during build, release process.  Critical for the mvn:deploy & mvn:release process -->
   <distributionManagement>
 
-   <!-- Release repository based on use of https://bitbucket.org/n_piper/environment.buildfarm -->
-   <repository>
-      <id>release-local</id>
-      <name>release-local</name>
-      <url>http://solveapuzzledev-repo:8081/artifactory/libs-release-local</url>
+    <!-- snapshot and release repositories in S3 -->
+    <snapshotRepository>
+      <id>solveapuzzle-repo</id>
+      <url>s3://solveapuzzle-repo/snapshot</url>
+    </snapshotRepository>
+    <repository>
+      <id>solveapuzzle-repo</id>
+      <url>s3://solveapuzzle-repo/release</url>
     </repository>
 
-    <!-- Snapshot repository based on https://bitbucket.org/n_piper/environment.buildfarm -->
-    <snapshotRepository>
-      <uniqueVersion>true</uniqueVersion>
-      <id>snapshot-local</id>
-      <name>snapshot-local</name>
-      <url>http://solveapuzzledev-repo:8081/artifactory/libs-snapshot-local</url>
-    </snapshotRepository>
-
-    <!-- Where the pages go 
+    <!-- Where the pages go  -->
     <site>
       <id>gh-pages</id>
       <url>http://npiper.github.io/${project.name}/</url>
-    </site>-->
+    </site>
   </distributionManagement>
 
 <!-- PROFILES   Build & Deploy Profiles -->
