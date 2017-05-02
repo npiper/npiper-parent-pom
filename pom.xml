@@ -7,7 +7,7 @@
     <groupId>com.solveapuzzldev</groupId>
     <artifactId>parent.pom</artifactId>
     <!-- Default starting version is 0-SNAPSHOT -->
-    <version>0.1.1</version>
+    <version>0.1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
    <!--
     <parent />
@@ -235,7 +235,7 @@
 		<connection>scm:git:git://github.com/npiper/${project.name}.git</connection>
 		<developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection>    
 
-  <tag>parent.pom-0.1.1</tag>
+  <tag>parent.pom-0.1.0</tag>
   </scm>
 
 <!-- REPOSITORIES & PLUGIN REPOSITORIES -->
