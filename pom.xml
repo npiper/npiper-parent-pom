@@ -264,7 +264,8 @@
     <!-- Where the pages go  -->
     <site>
       <id>gh-pages</id>
-      <url>http://npiper.github.io/${project.name}/</url>
+      <!-- <url>http://npiper.github.io/${project.name}/</url> -->
+      <url>file:///Users/neilpiper/SANDBOX/SITE/${project.name}</url>
     </site>
   </distributionManagement>
 
