@@ -1,16 +1,16 @@
-# Solveapuzzledev Parent POM file
+# neilpiper.me Parent POM file
 
 ## What this is?
 
 Source code for the parent pom for the Organisation
 
-'solvepuzzledev'
+'neilpiper.me'
 
 # How to use the Parent POM?
 
 ## Conventions to follow?
 
-Repository is in Github (Solveapuzzledev) team.
+Repository is in Github team.
 
 project.name = GIT repository name
 
