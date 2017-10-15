@@ -57,3 +57,11 @@ Release versions are baselined into an S3 Bucket owned by
 solveapuzzledev.  The extension [maven-s3-wagon](https://github.com/jcaddel/maven-s3-wagon) is used to communicate to S3.  
 
 The build server will need authentication/authorisation to the S3 bucket to do this.
+
+## Release process
+
+```
+mvn deploy
+mvn release:prepare
+mvn release:perform
+```
