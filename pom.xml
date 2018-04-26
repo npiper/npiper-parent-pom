@@ -17,7 +17,7 @@
 	<properties>
 		<project.name>npiper-parent-pom</project.name>
 		<!-- Sane default when no revision property is passed in from the commandline -->
-		<revision>0-SNAPSHOT</revision>
+		<revision>0-SNAPSHOT	</revision>
 		<!-- Enforces these minimum versions on build -->
 		<miniumumMavenVersion>3.2.1</miniumumMavenVersion>
 		<minimumJavaVersion>1.7</minimumJavaVersion>
@@ -108,7 +108,7 @@
 					<artifactId>maven-scm-plugin</artifactId>
 					<version>1.9.5</version>
 					<configuration>
-						<connectionType>connection</connectionType>
+						<connectionType>developerConnection</connectionType>
 						<tag>${project.artifactId}-${project.version}</tag>
 					</configuration>
 				</plugin>
