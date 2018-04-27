@@ -268,7 +268,7 @@
 		<developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection>
 		-->
 		
-		<developerConnection>scm:git:https://${env.GIT_TOKEN}@github.com:npiper/${project.name}.git</developerConnection>
+		<developerConnection>scm:git:https://${env.GIT_USER_NAME}:${env.GIT_PASS}@github.com:npiper/${project.name}.git</developerConnection>
 
 		<tag>HEAD</tag>
 	</scm>
