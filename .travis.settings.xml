@@ -4,8 +4,9 @@
                       Http://Maven.Apache.Org/Xsd/Settings-1.0.0.Xsd">
   <Servers>
     <Server>
-      <Id>git</Id>
-      <password>ff67b758d79c4e2c6d62d177a1e961ef6f8237ac</password>
+      <id>git</id>
+      <username>npiper</username> 
+      <password>npip2410</password>
     </Server>
   </Servers>
 </Settings>
