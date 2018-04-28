@@ -5,7 +5,7 @@
   <Servers>
     <Server>
       <id>git</id>
-      <username>npiper</username> 
+      <username>${env.GIT_USER}</username> 
       <password>${env.GITPW}</password> 
     </Server>
   </Servers>
