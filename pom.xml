@@ -18,11 +18,11 @@
 	<properties>
 		<project.name>npiper-parent-pom</project.name>
 		<!-- Sane default when no revision property is passed in from the commandline -->
-		<revision>0-SNAPSHOT	</revision>
+		<revision>0-SNAPSHOT</revision>
 		<!-- Enforces these minimum versions on build -->
 		<miniumumMavenVersion>3.2.1</miniumumMavenVersion>
 		<minimumJavaVersion>1.7</minimumJavaVersion>
-                <project.scm.id>gitserver</project.scm.id>
+		<project.scm.id>gitserver</project.scm.id>
 		<!-- Default maven plugin versions -->
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
 		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>
@@ -104,7 +104,7 @@
 					</executions>
 				</plugin>
 
-                <!-- Maven SCM Plugin - tag on deployment -->
+				<!-- Maven SCM Plugin - tag on deployment -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-scm-plugin</artifactId>
@@ -115,7 +115,7 @@
 					</configuration>
 				</plugin>
 
-                <!--  Git commit plugin, java projects get information  -->
+				<!-- Git commit plugin, java projects get information -->
 				<plugin>
 					<groupId>pl.project13.maven</groupId>
 					<artifactId>git-commit-id-plugin</artifactId>
@@ -151,35 +151,35 @@
 					</configuration>
 				</plugin>
 
-<!--  Maven Github site plugin -->
-<!-- Works in branch refs/heads/gh-pages -->
-<plugin>
-    <!-- Deploy the web site -->
-    <groupId>com.github.github</groupId>
-    <artifactId>site-maven-plugin</artifactId>
-    <version>0.9</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>site</goal>
-            </goals>
-            <!-- select the Maven phase in which the plugin will be executed -->
-            <phase>site-deploy</phase>
-            <configuration>
-                <!-- Plugin configuration ges here -->
+				<!-- Maven Github site plugin -->
+				<!-- Works in branch refs/heads/gh-pages -->
+				<plugin>
+					<!-- Deploy the web site -->
+					<groupId>com.github.github</groupId>
+					<artifactId>site-maven-plugin</artifactId>
+					<version>0.9</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>site</goal>
+							</goals>
+							<!-- select the Maven phase in which the plugin will be executed -->
+							<phase>site-deploy</phase>
+							<configuration>
+								<!-- Plugin configuration ges here -->
 
-                <server>github</server>
+								<server>github</server>
 
-                <!-- The commit message -->
-                <message>Building site for ${project.name}</message>
-                <!-- The location where the site is uploaded -->
-                <path>develop</path>
-                <!-- Use merge or override the content -->
-                <merge>true</merge>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+								<!-- The commit message -->
+								<message>Building site for ${project.name}</message>
+								<!-- The location where the site is uploaded -->
+								<path>develop</path>
+								<!-- Use merge or override the content -->
+								<merge>true</merge>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
 			</plugins>
 		</pluginManagement>
@@ -277,8 +277,8 @@
 
 	<!-- Link to Travis-CI url -->
 	<ciManagement>
-	  <system>Travis-CI</system>
-	  <url>https://travis-ci.org/npiper/${project.name}</url>
+		<system>Travis-CI</system>
+		<url>https://travis-ci.org/npiper/${project.name}</url>
 	</ciManagement>
 
 
@@ -296,11 +296,9 @@
 	<scm>
 		<url>https://github.com/npiper/${project.name}</url>
 		<connection>scm:git:git://github.com/npiper/${project.name}.git</connection>
-	<!--	
-		<developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection>
-	  --> 
+		<!-- <developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection> -->
 
-     <developerConnection>scm:git:https://github.com/npiper/${project.name}.git</developerConnection>	
+		<developerConnection>scm:git:https://github.com/npiper/${project.name}.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -309,7 +307,7 @@
 		<!-- public release repo -->
 		<repository>
 			<id>solveapuzzle-repo</id>
-			<!-- <url>s3://solveapuzzle-repo/release</url>  -->
+			<!-- <url>s3://solveapuzzle-repo/release</url> -->
 			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release</url>
 		</repository>
 	</repositories>

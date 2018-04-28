@@ -8,6 +8,44 @@ Source code for the parent pom for the Organisation
 
 # How to use the Parent POM?
 
+## New project
+
+### Add Repository
+
+```
+  	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
+	<repositories>
+		<!-- public release repo -->
+		<repository>
+			<id>solveapuzzle-repo</id>
+			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release/</url>
+		</repository>
+	</repositories>
+```
+
+### Choose the Parent
+
+Release versions can be browsed using the 'tags' [https://github.com/npiper/npiper-parent-pom/tags](https://github.com/npiper/npiper-parent-pom/tags)
+
+Release Naming Convention:  *MAJOR.MINOR.PATCH* _BUILD.COMMIT*
+
+```
+  <parent>
+    <groupId>neilpiper.me</groupId>
+    <artifactId>parent.pom</artifactId>
+    <version>0.0.1_51.b4a6634</version>
+  </parent>
+```
+
+### Set the project name
+
+A lot of the project inherits location and github projects
+
+```
+  <name>hello-world</name>
+  <description>Hello world test of parent</description>
+  ```
+
 ## Conventions to follow?
 
 Repository is in Github team.
