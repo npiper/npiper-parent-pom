@@ -8,5 +8,5 @@
       <username>${env.GIT_USER}</username> 
       <password>${env.GITPW}</password> 
     </server>
-  </servers>>
+  </servers>
 </settings>
