@@ -1,5 +1,5 @@
 # neilpiper.me Parent POM file
- from daws
+
 ## What this is?
 
 Source code for the parent pom for the Organisation
