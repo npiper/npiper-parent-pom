@@ -21,7 +21,7 @@
 		<!-- Enforces these minimum versions on build -->
 		<miniumumMavenVersion>3.2.1</miniumumMavenVersion>
 		<minimumJavaVersion>1.7</minimumJavaVersion>
-
+                <project.scm.id>git</project.scm.id>
 		<!-- Default maven plugin versions -->
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
 		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>

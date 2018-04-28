@@ -4,7 +4,7 @@
                       Http://Maven.Apache.Org/Xsd/Settings-1.0.0.Xsd">
   <Servers>
     <Server>
-      <Id>github.com</Id>
+      <Id>git</Id>
       <Password>ff67b758d79c4e2c6d62d177a1e961ef6f8237ac</Password>
     </Server>
   </Servers>
