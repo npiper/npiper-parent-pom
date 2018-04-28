@@ -5,7 +5,8 @@
   <Servers>
     <Server>
       <Id>git</Id>
-      <Password>ff67b758d79c4e2c6d62d177a1e961ef6f8237ac</Password>
+      <user>${env.GIT_USER}</user>
+      <password>${env.GIT_PASS}</password>
     </Server>
   </Servers>
 </Settings>
