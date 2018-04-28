@@ -47,6 +47,7 @@ The initial version is based on developing maven built, Java applications in the
 
  * Maven & JDK at required versions (Enforcer)
  * Checkstyle - Adopt [Google checks](http://checkstyle.sourceforge.net/google_style.html) as default
+ * Corbetura code coverage
 
 # License
 
@@ -61,8 +62,10 @@ The build server will need authentication/authorisation to the S3 bucket to do t
 
 ## Release process
 
+Use semantic versioning in your POM file to consider a release candidate of the change you are intending to make, and the CI server to guid the succesful build candidate to take forward.
+
+Why: You know the change you are after,.. it might take a few builds and tests to get it so the code traceability is always built in.
+
 ```
-mvn deploy
-mvn release:prepare
-mvn release:perform
+mvn deploy scm:tag -Drevision=${GIT-SHORT-TAG}
 ```
