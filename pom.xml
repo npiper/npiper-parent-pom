@@ -45,7 +45,7 @@
 		<pluginManagement>
 			<plugins>
 
-				<!-- Checkstyle -->
+				<!-- Checkstyle Google Checks -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
@@ -93,7 +93,7 @@
 										<version>${minimumJavaVersion}</version>
 									</requireJavaVersion>
 
-									<!-- Maven >= 3.1 -->
+									<!-- Maven >= 3.2+ -->
 									<requireMavenVersion>
 										<version>${miniumumMavenVersion}</version>
 									</requireMavenVersion>
@@ -104,6 +104,7 @@
 					</executions>
 				</plugin>
 
+                <!-- Maven SCM Plugin - tag on deployment -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-scm-plugin</artifactId>
@@ -114,6 +115,7 @@
 					</configuration>
 				</plugin>
 
+                <!--  Git commit plugin, java projects get information  -->
 				<plugin>
 					<groupId>pl.project13.maven</groupId>
 					<artifactId>git-commit-id-plugin</artifactId>
@@ -149,7 +151,35 @@
 					</configuration>
 				</plugin>
 
+<!--  Maven Github site plugin -->
+<!-- Works in branch refs/heads/gh-pages -->
+<plugin>
+    <!-- Deploy the web site -->
+    <groupId>com.github.github</groupId>
+    <artifactId>site-maven-plugin</artifactId>
+    <version>0.9</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>site</goal>
+            </goals>
+            <!-- select the Maven phase in which the plugin will be executed -->
+            <phase>site-deploy</phase>
+            <configuration>
+                <!-- Plugin configuration ges here -->
 
+                <server>github</server>
+
+                <!-- The commit message -->
+                <message>Building site for ${project.name}</message>
+                <!-- The location where the site is uploaded -->
+                <path>develop</path>
+                <!-- Use merge or override the content -->
+                <merge>true</merge>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 
 			</plugins>
 		</pluginManagement>
@@ -194,7 +224,7 @@
 
 	<!-- Description of a project is always good, helps POM readers -->
 	<description>
-    PROJECT.DESCRIPTION - parent pom for solveapuzzle projects
+    Parent pom for solveapuzzle projects
   </description>
 
 	<!-- URL is helpful for maintenance on where to find the source code, project 
@@ -245,9 +275,11 @@
 		<url>https://github.com/npiper/${project.name}/issues</url>
 	</issueManagement>
 
-	<!-- Not bothering with this, using VM's and the artifactory build is more 
-		relevant -->
-	<ciManagement />
+	<!-- Link to Travis-CI url -->
+	<ciManagement>
+	  <system>Travis-CI</system>
+	  <url>https://travis-ci.org/npiper/${project.name}</url>
+	</ciManagement>
 
 
 	<!-- Mailing lists are a great tool for keeping in touch with people about 
@@ -274,10 +306,11 @@
 
 	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
 	<repositories>
-		<!-- release repo -->
+		<!-- public release repo -->
 		<repository>
 			<id>solveapuzzle-repo</id>
-			<url>s3://solveapuzzle-repo/release</url>
+			<!-- <url>s3://solveapuzzle-repo/release</url>  -->
+			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release</url>
 		</repository>
 	</repositories>
 	<pluginRepositories />

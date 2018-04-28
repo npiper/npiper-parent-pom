@@ -1,5 +1,4 @@
 # neilpiper.me Parent POM file
-
  
 ## What this is?
 
@@ -30,18 +29,16 @@ Also consider:
 
 ## Overiding key behaviours?
 
-
 # Baseline
 
 The initial version is based on developing maven built, Java applications in the following minimum standards.
 
 
- * Maven version > 3.1
-  * Release plugin 2.5.3
-  * Checkstyle Plugin 2.17
-  * Enforcer Plugin 1.4.1
+  * Maven version > 3.2.1
+  * Checkstyle Plugin 3.0.0
+  * Enforcer Plugin 3.0.0-M1
   * Corbetura code coverage 2.7
- * Java/JDK version >= 1.8
+  * Java/JDK version >= 1.7
 
 # Validation
 
@@ -58,11 +55,11 @@ The initial version is based on developing maven built, Java applications in the
 Release versions are baselined into an S3 Bucket owned by 
 solveapuzzledev.  The extension [maven-s3-wagon](https://github.com/jcaddel/maven-s3-wagon) is used to communicate to S3.  
 
-The build server will need authentication/authorisation to the S3 bucket to do this.
+The build server will need authentication/authorisation to the S3 bucket to deploy releases but read-only access is public.
 
 ## Release process
 
-Use semantic versioning in your POM file to consider a release candidate of the change you are intending to make, and the CI server to guid the succesful build candidate to take forward.
+Use semantic versioning in your POM file to consider a release candidate of the change you are intending to make, and the CI server to guide the succesful build candidate to take forward.
 
 Why: You know the change you are after,.. it might take a few builds and tests to get it so the code traceability is always built in.
 
