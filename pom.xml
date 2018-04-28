@@ -263,9 +263,11 @@
 	<scm>
 		<url>https://github.com/npiper/${project.name}</url>
 		<connection>scm:git:git://github.com/npiper/${project.name}.git</connection>
-		
+	<!--	
 		<developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection>
-	        <developerConnection>scm:git:https://@github.com:npiper/${project.name}.git</developerConnection>	
+	  --> 
+
+     <developerConnection>scm:git:https://@github.com:npiper/${project.name}.git</developerConnection>	
 		<tag>HEAD</tag>
 	</scm>
 
