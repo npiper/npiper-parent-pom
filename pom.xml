@@ -27,9 +27,19 @@
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
 		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
+		<junitVersion>4.12</junitVersion>
 	</properties>
 
 	<!-- BUILD SETTINGS -->
+	<dependencies>
+	
+	<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>${junitVersion}</version>
+    <scope>test</scope>
+</dependency>
+	</dependencies>
 
 	<build>
 
@@ -41,6 +51,8 @@
 				<version>1.2.1</version>
 			</extension>
 		</extensions>
+		
+
 
 		<pluginManagement>
 			<plugins>
