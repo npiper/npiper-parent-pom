@@ -28,6 +28,7 @@
 		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
 		<junitVersion>4.12</junitVersion>
+		<coverageMetric>80</coverageMetric>
 	</properties>
 
 	<!-- BUILD SETTINGS -->
@@ -116,7 +117,7 @@
 							<goals>
 								<goal>enforce</goal>
 							</goals>
-							<phase>compile</phase>
+							<phase>validate</phase>
 							<inherited>true</inherited>
 							<configuration>
 								<rules>
@@ -135,6 +136,35 @@
 						</execution>
 					</executions>
 				</plugin>
+				
+				<!--  Corbetura coverage -->
+				<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>${codehauseCorbeturaPluginVersion}</version>
+        <configuration>
+        <check>
+            <branchRate>${coverageMetric}</branchRate>
+            <lineRate>${coverageMetric}</lineRate>
+            <haltOnFailure>true</haltOnFailure>
+            <totalBranchRate>${coverageMetric}</totalBranchRate>
+            <totalLineRate>${coverageMetric}</totalLineRate>
+            <packageLineRate>${coverageMetric}</packageLineRate>
+            <packageBranchRate>${coverageMetric}</packageBranchRate>
+          </check>
+        </configuration>
+        <executions>
+          <execution>
+          <id>test-code-coverage</id>
+            <goals>
+              <goal>clean</goal>
+              <goal>check</goal>
+            </goals>
+             <inherited>true</inherited>
+             <phase>verify</phase>
+          </execution>
+        </executions>
+      </plugin>
 		
 		</plugins>
 
