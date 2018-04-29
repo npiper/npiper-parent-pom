@@ -67,21 +67,26 @@
 			</extension>
 		</extensions>
 		
-
-
-		<pluginManagement>
-			<plugins>
-
+		<!-- Set inherited to true -->
+		<plugins>
+		
 				<!-- Checkstyle Google Checks -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>${mavenCheckstylePluginVersion}</version>
-
+					<dependencies>
+					            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>8.9</version>
+            </dependency>
+          </dependencies>
 					<executions>
 						<execution>
 							<id>validate</id>
 							<phase>validate</phase>
+							<inherited>true</inherited>
 							<configuration>
 								<!-- Google checks - built in http://checkstyle.sourceforge.net/google_style.html -->
 								<configLocation>google_checks.xml</configLocation>
@@ -96,10 +101,8 @@
 						</execution>
 					</executions>
 				</plugin>
-
-				<!-- Coverage -->
-
-
+				
+				
 				<!-- ENFORCER !! -->
 				<!-- Java 1.7+ -->
 				<!-- Maven 3.2+ -->
@@ -113,6 +116,8 @@
 							<goals>
 								<goal>validate</goal>
 							</goals>
+							<phase>compile</phase>
+							<inherited>true</inherited>
 							<configuration>
 								<rules>
 									<!-- Java >= 1.7 -->
@@ -130,6 +135,19 @@
 						</execution>
 					</executions>
 				</plugin>
+		
+		</plugins>
+
+
+		<pluginManagement>
+			<plugins>
+
+	
+
+				<!-- Coverage -->
+
+
+				
 
 				<!-- Maven SCM Plugin - tag on deployment -->
 				<plugin>
