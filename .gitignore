@@ -5,6 +5,9 @@
 .project
 .classpath
 
+# Maven files
+/target
+
 # Log file
 *.log
 
