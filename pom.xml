@@ -114,7 +114,7 @@
 						<execution>
 							<id>enforce-java</id>
 							<goals>
-								<goal>validate</goal>
+								<goal>enforce</goal>
 							</goals>
 							<phase>compile</phase>
 							<inherited>true</inherited>
