@@ -161,7 +161,7 @@
 							<goal>check</goal>
 						</goals>
 						<inherited>true</inherited>
-						<phase>verify</phase>
+						<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
