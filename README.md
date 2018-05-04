@@ -31,6 +31,7 @@ git push origin
 
 ```
 wget https://raw.githubusercontent.com/npiper/npiper-parent-pom/master/.gitignore .
+wget https://raw.githubusercontent.com/npiper/npiper-parent-pom/master/deploy.sh .
 wget https://raw.githubusercontent.com/npiper/npiper-parent-pom/master/.travis.sample .travis.yml
 ```
 
