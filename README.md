@@ -8,12 +8,51 @@ Source code for the parent pom for the Organisation
 
 # How to use the Parent POM?
 
-## New project
+## Pre-Requisites
 
-### Add Repository
+ * AWS Storage Repo S3 for Repository
+ * github account - OAuth token
+ * travis-ci account
+
+## New Git project
+
+### Create a new Git project
 
 ```
-  	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
+mvn archetype
+..
+git init
+git add . && git commit -am "initial commit"
+git remote add origin https://github.com/npiper/[PROJECT_NAME].git
+git push origin
+```
+
+### Copy a sample travis-ci file and .gitignore
+
+```
+wget https://raw.githubusercontent.com/npiper/npiper-parent-pom/master/.gitignore .
+wget https://raw.githubusercontent.com/npiper/npiper-parent-pom/master/.travis.sample .travis.yml
+```
+
+### Encrypt keys into .travis.yml
+
+The following encrypted variables are used on a succesful build and `mvn deploy` to the Release repository.
+
+ * Authenticate to S3 Release repo and push deploy image to Repo
+ * Git Tag and push to master
+
+
+```
+travis encrypt AWS_ACCESS_KEY_ID=[Your_AWS_Access_Key] --add
+travis encrypt AWS_SECRET_KEY=[Your_AWS_Secret_Key] --add
+travis encrypt GIT_USER_NAME=npiper --add
+travis encrypt GITPW=[Your GIT OAuth] --add
+```
+
+### Add Repository , overwrite SCM URL in pom.xml
+
+```
+  	<!-- REPOSITORIES & PLUGIN REPOSITORIES - chicken/egg for travis-ci -->
 	<repositories>
 		<!-- public release repo -->
 		<repository>
@@ -21,6 +60,12 @@ Source code for the parent pom for the Organisation
 			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release/</url>
 		</repository>
 	</repositories>
+	
+	<!-- Workaround to an inconsistency in Maven that child projects scm tag, appends parent's pom name -->
+	<scm>
+		<url>https://github.com/npiper/hello-world</url>
+		<developerConnection>scm:git:https://github.com/npiper/[repo-name].git</developerConnection>
+	</scm>
 ```
 
 ### Choose the Parent
