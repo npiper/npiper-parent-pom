@@ -152,6 +152,13 @@
 						<packageLineRate>${coverageMetric}</packageLineRate>
 						<packageBranchRate>${coverageMetric}</packageBranchRate>
 					</check>
+					<!-- Ignore coverage of Lombok Generated methods
+					https://github.com/rzwitserloot/lombok/issues/1014 -->
+					<instrumentation>
+					<ignoreMethodAnnotations>
+						<ignoreMethodAnnotation>lombok.Generated</ignoreMethodAnnotation>
+					</ignoreMethodAnnotations>
+				</instrumentation>
 				</configuration>
 				<executions>
 					<execution>
