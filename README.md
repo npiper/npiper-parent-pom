@@ -129,6 +129,8 @@ The initial version is based on developing maven built, Java applications in the
  * Maven & JDK at required versions (Enforcer)
  * Checkstyle - Adopt [Google checks](http://checkstyle.sourceforge.net/google_style.html) as default
  * Corbetura code coverage
+ * PMD - Copy paste detect
+  * https://www.rainerhahnekamp.com/en/ignoring-lombok-code-in-jacoco/
 
 # License
 

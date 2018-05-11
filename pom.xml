@@ -27,6 +27,8 @@
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
 		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
+		<pmd.version>3.9.0</pmd.version>
+		<pmd.failurePriority>5</pmd.failurePriority>
 		<junitVersion>4.12</junitVersion>
 		<coverageMetric>80</coverageMetric>
 	</properties>
@@ -70,6 +72,9 @@
 
 		<!-- Set inherited to true -->
 		<plugins>
+
+			<!-- VALIDATION PHASE -->
+			<!-- Enforcer, Checkstyle & PMD -->
 
 			<!-- Checkstyle Google Checks -->
 			<plugin>
@@ -137,6 +142,32 @@
 				</executions>
 			</plugin>
 
+
+			<!-- PMD , Copy / Paste Detections -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${pmd.version}</version>
+				<configuration>
+					<linkXRef>true</linkXRef>
+					<sourceEncoding>UTF-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>1.8</targetJdk>
+					<failurePriority>${pmd.failurePriority}</failurePriority>
+
+				</configuration>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+							<goal>cpd-check</goal>
+							<goal>pmd</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!-- Corbetura coverage -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -152,13 +183,12 @@
 						<packageLineRate>${coverageMetric}</packageLineRate>
 						<packageBranchRate>${coverageMetric}</packageBranchRate>
 					</check>
-					<!-- Ignore coverage of Lombok Generated methods
-					https://github.com/rzwitserloot/lombok/issues/1014 -->
+					<!-- Ignore coverage of Lombok Generated methods https://github.com/rzwitserloot/lombok/issues/1014 -->
 					<instrumentation>
-					<ignoreMethodAnnotations>
-						<ignoreMethodAnnotation>lombok.Generated</ignoreMethodAnnotation>
-					</ignoreMethodAnnotations>
-				</instrumentation>
+						<ignoreMethodAnnotations>
+							<ignoreMethodAnnotation>lombok.Generated</ignoreMethodAnnotation>
+						</ignoreMethodAnnotations>
+					</instrumentation>
 				</configuration>
 				<executions>
 					<execution>
@@ -168,7 +198,7 @@
 							<goal>check</goal>
 						</goals>
 						<inherited>true</inherited>
-						<phase>package</phase>
+						<!-- <phase>package</phase> -->
 					</execution>
 				</executions>
 			</plugin>
@@ -288,6 +318,7 @@
 			</plugin>
 
 
+
 			<!-- Coverage -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -309,6 +340,8 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+
+
 		</plugins>
 	</reporting>
 
