@@ -1,4 +1,4 @@
-  # neilpiper.me Parent POM file
+# neilpiper.me Parent POM file
 
 ## What this is?
 
