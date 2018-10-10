@@ -322,8 +322,8 @@
 
 	<!-- PROJECT INFORMATION -->
 
-	<!-- Name of the project or module , typically more than just the artifactId
-		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but
+	<!-- Name of the project or module , typically more than just the artifactId 
+		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but 
 		useful. -->
 	<name>npiper-parent-pom</name>
 
@@ -332,18 +332,18 @@
     Parent pom for solveapuzzle projects
   </description>
 
-	<!-- URL is helpful for maintenance on where to find the source code, project
+	<!-- URL is helpful for maintenance on where to find the source code, project 
 		site. -->
 	<url>https://npiper.github.io/${project.name}/</url>
 
 
-	
-		<scm>
+
+	<scm>
 		<url>https://github.com/npiper/npiper-parent-pom</url>
 		<connection>scm:git:git://github.com/npiper/npiper-parent-pom.git</connection>
 		<developerConnection>scm:git:https://github.com/npiper/npiper-parent-pom.git</developerConnection>
 	</scm>
-	
+
 
 	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
 	<repositories>
@@ -357,7 +357,7 @@
 	<pluginRepositories />
 
 
-	<!--manages the distribution of the artifact and supporting files during
+	<!--manages the distribution of the artifact and supporting files during 
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
 
@@ -365,6 +365,12 @@
 			<id>solveapuzzle-repo</id>
 			<url>s3://solveapuzzle-repo/release</url>
 		</repository>
+
+
+		<site>
+			<id>gh-pages</id>
+			<url>https://npiper.github.io/${project.name}</url>
+		</site>
 
 	</distributionManagement>
 
