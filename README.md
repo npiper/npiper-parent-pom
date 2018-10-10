@@ -1,5 +1,5 @@
-# neilpiper.me Parent POM file
- 
+  # neilpiper.me Parent POM file
+
 ## What this is?
 
 Source code for the parent pom for the Organisation
@@ -61,7 +61,7 @@ travis encrypt GITPW=[Your GIT OAuth] --add
 			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release/</url>
 		</repository>
 	</repositories>
-	
+
 	<!-- Workaround to an inconsistency in Maven that child projects scm tag, appends parent's pom name -->
 	<scm>
 		<url>https://github.com/npiper/hello-world</url>
@@ -72,6 +72,8 @@ travis encrypt GITPW=[Your GIT OAuth] --add
 ### Choose the Parent
 
 Release versions can be browsed using the 'tags' [https://github.com/npiper/npiper-parent-pom/tags](https://github.com/npiper/npiper-parent-pom/tags)
+
+The parent versions can be browsed at: https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo
 
 Release Naming Convention:  *MAJOR.MINOR.PATCH* _BUILD.COMMIT*
 
@@ -106,7 +108,7 @@ When using `site` put published version into github pages as path `${project.nam
 
 Allow freedom, suggest JUnit by default.
 
-Also consider: 
+Also consider:
 * Powermock
 * Mockito
 
@@ -138,7 +140,7 @@ The initial version is based on developing maven built, Java applications in the
 
 # Release Baselining (Maven snapshots, releases)
 
-Release versions are baselined into an S3 Bucket owned by 
+Release versions are baselined into an S3 Bucket owned by
 solveapuzzledev.  The extension [maven-s3-wagon](https://github.com/jcaddel/maven-s3-wagon) is used to communicate to S3.  
 
 The build server will need authentication/authorisation to the S3 bucket to deploy releases but read-only access is public.

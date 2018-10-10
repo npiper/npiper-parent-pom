@@ -12,6 +12,12 @@
 	<version>0.0.1_${revision}</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
+	<parent>
+		<version>0.0.1_19.0e141d9</version>
+		<groupId>neilpiper.me</groupId>
+		<artifactId>parent.org</artifactId>
+	</parent>
+
 
 	<!-- Modules, sub-modules & properties -->
 	<modules />
@@ -20,12 +26,9 @@
 		<!-- Sane default when no revision property is passed in from the commandline -->
 		<revision>0-SNAPSHOT</revision>
 		<!-- Enforces these minimum versions on build -->
-		<miniumumMavenVersion>3.2.1</miniumumMavenVersion>
 		<minimumJavaVersion>1.7</minimumJavaVersion>
-		<project.scm.id>gitserver</project.scm.id>
 		<!-- Default maven plugin versions -->
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
-		<mavenEnforcerPluginVersion>3.0.0-M1</mavenEnforcerPluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
 		<pmd.version>3.9.0</pmd.version>
 		<pmd.failurePriority>5</pmd.failurePriority>
@@ -60,15 +63,6 @@
 	</dependencies>
 
 	<build>
-
-		<!-- Extension : s3 wagon for repo -->
-		<extensions>
-			<extension>
-				<groupId>org.kuali.maven.wagons</groupId>
-				<artifactId>maven-s3-wagon</artifactId>
-				<version>1.2.1</version>
-			</extension>
-		</extensions>
 
 		<!-- Set inherited to true -->
 		<plugins>
@@ -229,17 +223,6 @@
 
 
 
-				<!-- Maven SCM Plugin - tag on deployment -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-scm-plugin</artifactId>
-					<version>1.9.5</version>
-					<configuration>
-						<connectionType>developerConnection</connectionType>
-						<tag>${project.version}</tag>
-					</configuration>
-				</plugin>
-
 				<!-- Git commit plugin, java projects get information -->
 				<plugin>
 					<groupId>pl.project13.maven</groupId>
@@ -276,35 +259,11 @@
 					</configuration>
 				</plugin>
 
-				<!-- Maven Github site plugin -->
-				<!-- Works in branch refs/heads/gh-pages -->
-				<plugin>
-					<!-- Deploy the web site -->
-					<groupId>com.github.github</groupId>
-					<artifactId>site-maven-plugin</artifactId>
-					<version>0.9</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>site</goal>
-							</goals>
-							<!-- select the Maven phase in which the plugin will be executed -->
-							<phase>site-deploy</phase>
-							<configuration>
-								<!-- Plugin configuration ges here -->
 
-								<server>github</server>
 
-								<!-- The commit message -->
-								<message>Building site for ${project.name}</message>
-								<!-- The location where the site is uploaded -->
-								<path>develop</path>
-								<!-- Use merge or override the content -->
-								<merge>true</merge>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
+
+
+
 
 			</plugins>
 		</pluginManagement>
@@ -363,8 +322,8 @@
 
 	<!-- PROJECT INFORMATION -->
 
-	<!-- Name of the project or module , typically more than just the artifactId 
-		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but 
+	<!-- Name of the project or module , typically more than just the artifactId
+		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but
 		useful. -->
 	<name>npiper-parent-pom</name>
 
@@ -373,80 +332,27 @@
     Parent pom for solveapuzzle projects
   </description>
 
-	<!-- URL is helpful for maintenance on where to find the source code, project 
+	<!-- URL is helpful for maintenance on where to find the source code, project
 		site. -->
 	<url>https:///n_piper/${project.name}/</url>
-	<!-- When did this all start...? -->
-	<inceptionYear>2017</inceptionYear>
 
-	<!-- legal documents defining how and when a project (or parts of a project) 
-		may be used -->
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>https://opensource.org/licenses/mit-license.php</url>
-			<distribution>repo</distribution>
 
-		</license>
-	</licenses>
-
-	<!-- Typically only core dev team, leads, buildmasters. If the person should 
-		not be contacted about the project or initiative, they need not be listed 
+	<!-- Typically only core dev team, leads, buildmasters. If the person should
+		not be contacted about the project or initiative, they need not be listed
 		here -->
-	<developers>
-		<developer>
-			<id>npiper</id>
-			<name>Neil Piper</name>
-			<email>solveapuzzledev@gmail.com</email>
-			<url>https://www.linkedin.com/in/piperneil</url>
-			<!-- <organization>SOLVEAPUZZLE</organization> <organizationUrl>http://www.example.com</organizationUrl> -->
-			<roles>
-				<role>architect</role>
-				<role>developer</role>
-			</roles>
-			<timezone>Australia/Melbourne</timezone>
-			<properties>
-				<picUrl>https://avatars3.githubusercontent.com/u/436314</picUrl>
-			</properties>
-		</developer>
-	</developers>
-
-
-	<!-- ENVIRONMENT & RELEASE SETTINGS -->
-
-	<!-- Where / Which system to raise issues in, can be used by plugins but 
-		typically for project / site documentation. -->
-	<issueManagement>
-		<system>github</system>
-		<url>https://github.com/npiper/${project.name}/issues</url>
-	</issueManagement>
-
-	<!-- Link to Travis-CI url -->
-	<ciManagement>
-		<system>Travis-CI</system>
-		<url>https://travis-ci.org/npiper/${project.name}</url>
-	</ciManagement>
-
-
-	<!-- Mailing lists are a great tool for keeping in touch with people about 
-		a project. Most mailing lists are for developers and users. -->
-	<!-- <mailingLists> <mailingList> <name>PROJECT ${project.name} Developer 
-		mailing list</name> <subscribe>${project.name}-dev-subscribe@sonatype.org</subscribe> 
-		<unsubscribe>${project.name}-dev-unsubscribe@sonatype.org</unsubscribe> <post>${project.name}-dev@sonatype.org</post> 
-		<archive>?</archive> </mailingList> </mailingLists> -->
+	
 
 
 	<!-- Software configuration management details -->
-	<!-- Critical for the mvn:release plugin & process, where to find the source 
+	<!-- Critical for the mvn:release plugin & process, where to find the source
 		code. -->
-	<scm>
-		<url>https://github.com/npiper/${project.name}</url>
-		<connection>scm:git:git://github.com/npiper/${project.name}.git</connection>
-		<!-- <developerConnection>scm:git:git@github.com:npiper/${project.name}.git</developerConnection> -->
 
-		<developerConnection>scm:git:https://github.com/npiper/${project.name}.git</developerConnection>
-		<tag>HEAD</tag>
+	
+		<scm>
+		<url>https://github.com/npiper/npiper-parent-pom</url>
+		<developerConnection>scm:git:https://github.com/npiper/npiper-parent-pom.git</developerConnection>
 	</scm>
+	
 
 	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
 	<repositories>
@@ -460,7 +366,7 @@
 	<pluginRepositories />
 
 
-	<!--manages the distribution of the artifact and supporting files during 
+	<!--manages the distribution of the artifact and supporting files during
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
 
@@ -469,16 +375,11 @@
 			<url>s3://solveapuzzle-repo/release</url>
 		</repository>
 
-		<!-- Where the pages go -->
-		<site>
-			<id>gh-pages</id>
-			<!-- <url>http://npiper.github.io/${project.name}/</url> -->
-			<url>file:///Users/neilpiper/SANDBOX/SITE/${project.name}</url>
-		</site>
 	</distributionManagement>
 
 	<!-- PROFILES Build & Deploy Profiles -->
 
 	<!-- <profiles> </profiles> -->
+
 
 </project>
