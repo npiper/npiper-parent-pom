@@ -11,7 +11,7 @@
 </servers>
 <pluginGroups>
         <pluginGroup>org.mule.tools</pluginGroup>
-    </pluginGroups> 
+    </pluginGroups>
 <profiles>
   <profile>
    <id>default</id>
@@ -24,6 +24,13 @@
             <id>mulesoft-releases</id>
             <url>http://repository.mulesoft.org/releases/</url>
         </repository>
+        <!-- My AWS Public repo -->
+        <repository>
+                 <id>solveapuzzle-repo</id>
+                 <url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release/</url>
+         </repository>
+
+
 
 </repositories>
 
@@ -35,9 +42,9 @@
 </pluginRepositories>
 
   </profile>
-</profiles> 
+</profiles>
   <activeProfiles>
     <activeProfile>default</activeProfile>
   </activeProfiles>
 
-</settings>  
+</settings>

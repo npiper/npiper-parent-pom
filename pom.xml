@@ -19,8 +19,6 @@
 	</parent>
 
 
-	<!-- Modules, sub-modules & properties -->
-	<modules />
 	<properties>
 		<project.name>npiper-parent-pom</project.name>
 		<!-- Sane default when no revision property is passed in from the commandline -->
@@ -220,9 +218,6 @@
 
 				<!-- Coverage -->
 
-
-
-
 				<!-- Git commit plugin, java projects get information -->
 				<plugin>
 					<groupId>pl.project13.maven</groupId>
@@ -258,12 +253,6 @@
 						</validationProperties>
 					</configuration>
 				</plugin>
-
-
-
-
-
-
 
 			</plugins>
 		</pluginManagement>
@@ -332,11 +321,6 @@
     Parent pom for solveapuzzle projects
   </description>
 
-	<!-- URL is helpful for maintenance on where to find the source code, project 
-		site. -->
-	<url>https://npiper.github.io/${project.name}/</url>
-
-
 
 	<scm>
 		<url>https://github.com/npiper/npiper-parent-pom</url>
@@ -344,28 +328,9 @@
 		<developerConnection>scm:git:https://github.com/npiper/npiper-parent-pom.git</developerConnection>
 	</scm>
 
-
-	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
-	<repositories>
-		<!-- public release repo -->
-		<repository>
-			<id>solveapuzzle-repo</id>
-			<!-- <url>s3://solveapuzzle-repo/release</url> -->
-			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release</url>
-		</repository>
-	</repositories>
-	<pluginRepositories />
-
-
 	<!--manages the distribution of the artifact and supporting files during 
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
-
-		<repository>
-			<id>solveapuzzle-repo</id>
-			<url>s3://solveapuzzle-repo/release</url>
-		</repository>
-
 
 		<site>
 			<id>gh-pages</id>
