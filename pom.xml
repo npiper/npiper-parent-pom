@@ -328,6 +328,16 @@
 		<developerConnection>scm:git:https://github.com/npiper/npiper-parent-pom.git</developerConnection>
 	</scm>
 
+	<!-- REPOSITORIES & PLUGIN REPOSITORIES -->
+	<repositories>
+		<!-- public release repo -->
+		<repository>
+			<id>solveapuzzle-repo</id>
+			<!-- <url>s3://solveapuzzle-repo/release</url> -->
+			<url>https://s3-ap-southeast-2.amazonaws.com/solveapuzzle-repo/release</url>
+		</repository>
+	</repositories>
+
 	<!--manages the distribution of the artifact and supporting files during 
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
