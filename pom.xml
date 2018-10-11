@@ -177,7 +177,7 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
-							<destFile>${project.build.directory}/j.exec</destFile>
+							<destFile>${project.build.directory}/jacoco.exec</destFile>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>
@@ -300,7 +300,7 @@
 					</reportSet>
 				</reportSets>
 				<configuration>
-					<dataFile>${project.build.directory}/j.exec</dataFile>
+					<dataFile>${project.build.directory}/jacoco.exec</dataFile>
 				</configuration>
 			</plugin>
 
