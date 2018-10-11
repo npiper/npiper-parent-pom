@@ -24,6 +24,7 @@
             <id>mulesoft-releases</id>
             <url>http://repository.mulesoft.org/releases/</url>
         </repository>
+        
         <!-- My AWS Public repo -->
         <repository>
                  <id>solveapuzzle-repo</id>
