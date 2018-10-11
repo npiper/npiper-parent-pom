@@ -112,6 +112,11 @@ Also consider:
 * Powermock
 * Mockito
 
+## Code coverage
+
+JaCoco - however Travis-ci may have some difficulties here:
+https://blog.frankel.ch/travis-ci-tutorial-for-java-projects/
+
 
 ## Overiding key behaviours?
 

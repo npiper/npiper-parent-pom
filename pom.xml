@@ -6,14 +6,13 @@
 
 	<!-- Template Project file for my projects - based on https://maven.apache.org/pom.html -->
 
-	<groupId>neilpiper.me</groupId>
 	<artifactId>parent.pom</artifactId>
 	<!-- Default starting version is 0-SNAPSHOT -->
 	<version>0.0.1_${revision}</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
 	<parent>
-		<version>0.0.1_19.0e141d9</version>
+		<version>0.0.1_43.3908675</version>
 		<groupId>neilpiper.me</groupId>
 		<artifactId>parent.org</artifactId>
 	</parent>
@@ -317,9 +316,7 @@
 	<name>npiper-parent-pom</name>
 
 	<!-- Description of a project is always good, helps POM readers -->
-	<description>
-    Parent pom for solveapuzzle projects
-  </description>
+	<description>Parent pom for solveapuzzle java projects, includes static code analysis, test frameworks, code coverage, logging.</description>
 
 
 	<scm>
