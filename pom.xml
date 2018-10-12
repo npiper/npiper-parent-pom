@@ -284,7 +284,11 @@
 				</reportSets>
 			</plugin>
 
-
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.9</version>
+			</plugin>
 
 			<!-- Coverage -->
 			<plugin>
@@ -310,8 +314,8 @@
 
 	<!-- PROJECT INFORMATION -->
 
-	<!-- Name of the project or module , typically more than just the artifactId 
-		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but 
+	<!-- Name of the project or module , typically more than just the artifactId
+		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but
 		useful. -->
 	<name>npiper-parent-pom</name>
 
@@ -335,7 +339,7 @@
 		</repository>
 	</repositories>
 
-	<!--manages the distribution of the artifact and supporting files during 
+	<!--manages the distribution of the artifact and supporting files during
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
 
