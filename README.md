@@ -138,6 +138,7 @@ The initial version is based on developing maven built, Java applications in the
  * Corbetura code coverage
  * PMD - Copy paste detect
   * https://www.rainerhahnekamp.com/en/ignoring-lombok-code-in-jacoco/
+  * JDepend - http://www.mojohaus.org/jdepend-maven-plugin/
 
 # License
 
