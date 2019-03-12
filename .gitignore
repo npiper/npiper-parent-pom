@@ -4,6 +4,7 @@
 # Eclipse files
 .project
 .classpath
+.settings
 
 # Maven files
 /target
