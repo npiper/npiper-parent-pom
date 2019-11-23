@@ -129,7 +129,7 @@ The initial version is based on developing maven built, Java applications in the
   * Checkstyle Plugin 3.0.0
   * Enforcer Plugin 3.0.0-M1
   * Corbetura code coverage 2.7
-  * Java/JDK version >= 1.7
+  * Java/JDK version >= 1.8
 
 # Validation
 

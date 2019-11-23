@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -8,11 +9,11 @@
 
 	<artifactId>parent.pom</artifactId>
 	<!-- Default starting version is 0-SNAPSHOT -->
-	<version>0.0.1_${revision}</version>
+	<version>1.0.0_${revision}</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
 	<parent>
-		<version>0.0.1_43.3908675</version>
+		<version>0.1.0_47.43a0fc6</version>
 		<groupId>neilpiper.me</groupId>
 		<artifactId>parent.org</artifactId>
 	</parent>
@@ -23,7 +24,7 @@
 		<!-- Sane default when no revision property is passed in from the commandline -->
 		<revision>0-SNAPSHOT</revision>
 		<!-- Enforces these minimum versions on build -->
-		<minimumJavaVersion>1.7</minimumJavaVersion>
+		<minimumJavaVersion>1.8</minimumJavaVersion>
 		<!-- Default maven plugin versions -->
 		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
@@ -31,6 +32,9 @@
 		<pmd.failurePriority>5</pmd.failurePriority>
 		<junitVersion>4.12</junitVersion>
 		<coverageMetric>80</coverageMetric>
+		<!-- JDK 1.8 Default target -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
 	<!-- BUILD SETTINGS -->
@@ -44,17 +48,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- LOGGING LOG4j -->
+		<!-- LOGGING SLF4j -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.11.0</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.29</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.11.0</version>
-		</dependency>
+
 
 
 	</dependencies>
@@ -117,7 +117,7 @@
 						<inherited>true</inherited>
 						<configuration>
 							<rules>
-								<!-- Java >= 1.7 -->
+								<!-- Java >= 1.8 -->
 								<requireJavaVersion>
 									<version>${minimumJavaVersion}</version>
 								</requireJavaVersion>
@@ -164,7 +164,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.0</version>
+				<version>0.8.5</version>
 				<executions>
 					<execution>
 						<goals>
@@ -285,16 +285,16 @@
 			</plugin>
 
 			<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-project-info-reports-plugin</artifactId>
-					<version>2.9</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.9</version>
 			</plugin>
 
 			<!-- Coverage -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.0</version>
+				<version>0.8.5</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -314,8 +314,8 @@
 
 	<!-- PROJECT INFORMATION -->
 
-	<!-- Name of the project or module , typically more than just the artifactId
-		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but
+	<!-- Name of the project or module , typically more than just the artifactId 
+		i.e. Java 1.5 = 'tiger', printed in the execution, build. Not mandatory but 
 		useful. -->
 	<name>npiper-parent-pom</name>
 
@@ -339,13 +339,13 @@
 		</repository>
 	</repositories>
 
-	<!--manages the distribution of the artifact and supporting files during
+	<!--manages the distribution of the artifact and supporting files during 
 		build, release process. Critical for the mvn:deploy & mvn:release process -->
 	<distributionManagement>
 
 		<site>
 			<id>gh-pages</id>
-			<url>https://npiper.github.io/${project.name}</url>
+			<url>https://${githubOrg}.github.io/${project.name}</url>
 		</site>
 
 	</distributionManagement>
