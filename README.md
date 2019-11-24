@@ -6,6 +6,15 @@ Source code for the parent pom for the Organisation
 
 'neilpiper.me'
 
+```
+groupId: neilpiper.me
+artifactId: parent.pom
+
+Current Major Version: 0
+Suggested Maven Import Range:  (,1.0]  x <= 1.0
+
+```
+
 # How to use the Parent POM?
 
 ## Pre-Requisites
@@ -13,6 +22,7 @@ Source code for the parent pom for the Organisation
  * AWS Storage Repo S3 for Repository
  * github account - OAuth token
  * travis-ci account
+ * docker
 
 ## New Git project
 
@@ -48,6 +58,8 @@ travis encrypt AWS_ACCESS_KEY_ID=[Your_AWS_Access_Key] --add
 travis encrypt AWS_SECRET_KEY=[Your_AWS_Secret_Key] --add
 travis encrypt GIT_USER_NAME=npiper --add
 travis encrypt GITPW=[Your GIT OAuth] --add
+travis encrypt DOCKER_USERNAME=[Your Dockerhub user] --add
+travis encrypt DOCKER_PASSWORD=[Your Dockerhub password] --add
 ```
 
 ### Add Repository , overwrite SCM URL in pom.xml
@@ -64,10 +76,11 @@ travis encrypt GITPW=[Your GIT OAuth] --add
 
 	<!-- Workaround to an inconsistency in Maven that child projects scm tag, appends parent's pom name -->
 	<scm>
-		<url>https://github.com/npiper/hello-world</url>
-		<developerConnection>scm:git:https://github.com/npiper/[repo-name].git</developerConnection>
+		<url>https://github.com/${githubOrg}/[repo-name]</url>
+		<developerConnection>scm:git:https://github.com/${githubOrg}/[repo-name].git</developerConnection>
 	</scm>
 ```
+
 
 ### Choose the Parent
 
@@ -81,7 +94,7 @@ Release Naming Convention:  *MAJOR.MINOR.PATCH* _BUILD.COMMIT*
   <parent>
     <groupId>neilpiper.me</groupId>
     <artifactId>parent.pom</artifactId>
-    <version>0.0.1_51.b4a6634</version>
+    <version>(,1.0]</version>
   </parent>
 ```
 
@@ -91,7 +104,6 @@ A lot of the project inherits location and github projects
 
 ```
   <name>hello-world</name>
-  <description>Hello world test of parent</description>
   ```
 
 ## Conventions to follow?
@@ -125,7 +137,7 @@ https://blog.frankel.ch/travis-ci-tutorial-for-java-projects/
 The initial version is based on developing maven built, Java applications in the following minimum standards.
 
 
-  * Maven version > 3.2.1
+  * Maven version > 3.5.0
   * Checkstyle Plugin 3.0.0
   * Enforcer Plugin 3.0.0-M1
   * Corbetura code coverage 2.7
@@ -157,6 +169,3 @@ Use semantic versioning in your POM file to consider a release candidate of the 
 
 Why: You know the change you are after,.. it might take a few builds and tests to get it so the code traceability is always built in.
 
-```
-mvn deploy scm:tag -Drevision=${GIT-SHORT-TAG}
-```
