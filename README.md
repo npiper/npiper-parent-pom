@@ -10,8 +10,8 @@ Source code for the parent pom for the Organisation
 groupId: neilpiper.me
 artifactId: parent.pom
 
-Current Major Version: 0
-Suggested Maven Import Range:  (,1.0]  x <= 1.0
+Current Major Version: 1
+Suggested Maven Import Range:  (,2.0]  x <= 2.0
 
 ```
 
