@@ -9,7 +9,7 @@
 
 	<artifactId>parent.pom</artifactId>
 	<!-- Default starting version is 0-SNAPSHOT -->
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
 	<parent>
@@ -51,11 +51,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- LOGGING SLF4j -->
+		<!-- LOGGING SLF4j API -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4jVersion}</version>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.29</version>
 		</dependency>
 
 
@@ -148,7 +148,7 @@
 					<minimumTokens>100</minimumTokens>
 					<targetJdk>${minimumJavaVersion}</targetJdk>
 					<failurePriority>${pmd.failurePriority}</failurePriority>
-                    <analysisCache>true</analysisCache> 
+					<analysisCache>true</analysisCache>
 				</configuration>
 				<executions>
 					<execution>
