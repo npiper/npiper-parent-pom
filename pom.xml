@@ -37,7 +37,7 @@
 		<!-- Dependency Versions -->
 		<junitVersion>4.12</junitVersion>
 		<slf4jVersion>1.7.29</slf4jVersion>
-		<checkstyleVersion>8.18</checkstyleVersion>
+		<checkstyleVersion>[8.29,)</checkstyleVersion>
 	</properties>
 
 	<!-- BUILD SETTINGS -->
