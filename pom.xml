@@ -9,7 +9,7 @@
 
 	<artifactId>parent.pom</artifactId>
 	<!-- Default starting version is 0-SNAPSHOT -->
-	<version>1.1.2</version>
+	<version>1.1.3</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
 	<parent>
@@ -26,7 +26,7 @@
 		<!-- Enforces these minimum versions on build -->
 		<minimumJavaVersion>1.8</minimumJavaVersion>
 		<!-- Default maven plugin versions -->
-		<mavenCheckstylePluginVersion>3.0.0</mavenCheckstylePluginVersion>
+		<mavenCheckstylePluginVersion>3.1.1</mavenCheckstylePluginVersion>
 		<codehauseCorbeturaPluginVersion>2.7</codehauseCorbeturaPluginVersion>
 		<pmd.version>3.9.0</pmd.version>
 		<pmd.failurePriority>5</pmd.failurePriority>
