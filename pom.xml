@@ -9,7 +9,7 @@
 
 	<artifactId>parent.pom</artifactId>
 	<!-- Default starting version is 0-SNAPSHOT -->
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<packaging>pom</packaging>
 	<!-- <parent /> <dependencies /> -->
 	<parent>
@@ -36,7 +36,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<!-- Dependency Versions -->
 		<junitVersion>[4.13,5.0)</junitVersion>
-		<slf4jVersion>[1.7,2.0)</slf4jVersion>
+		<slf4jVersion>[1.7,1.8.0-alpha0)</slf4jVersion>
 		<checkstyleVersion>[8.40,9.0)</checkstyleVersion>
 	</properties>
 
