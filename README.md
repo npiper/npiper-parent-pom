@@ -163,6 +163,10 @@ solveapuzzledev.  The extension [maven-s3-wagon](https://github.com/jcaddel/mave
 
 The build server will need authentication/authorisation to the S3 bucket to deploy releases but read-only access is public.
 
+## Testing github actions
+
+Testing the actions for github
+
 ## Release process
 
 Use semantic versioning in your POM file to consider a release candidate of the change you are intending to make, and the CI server to guide the succesful build candidate to take forward.
