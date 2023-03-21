@@ -10,6 +10,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::329799773336:role/npiper-githubactions-role
+        aws-region: eu-west-2
       
     - name: Set up JDK
       uses: actions/setup-java@v2
