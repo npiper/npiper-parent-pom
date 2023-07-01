@@ -5,7 +5,13 @@ permissions:
   contents: write
 
 on:
-  workflow_dispatch:
+  push:
+  pull_request:
+    types:
+      - synchronize
+      - opened
+      - reopened
+      - closed
 
 jobs:
   build:
