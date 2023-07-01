@@ -42,14 +42,14 @@ jobs:
         
     - name: Configure Git
       run: |
-        git config --global user.name "${{ secrets.GHUBUILDSER }}"
-        git config --global user.email "${{ secrets.GHBUILDEMAIL }}"
+        git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+        git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
 
     - name: Build and Deploy
       run: |
         mvn clean install -Drevision=${{ github.run_number }}.$(git rev-parse --short HEAD) --settings .travis.settings.xml
-        mvn site deploy scm:tag --settings .travis.settings.xml -Drevision=${{ github.run_number }}.$(git rev-parse --short HEAD) -Dusername=${{ secrets.GHUBUILDSER }} -Dpassword=${{ secrets.GHOAUTH_SECRET_TOKEN }}
+        mvn site deploy scm:tag --settings .travis.settings.xml -Drevision=${{ github.run_number }}.$(git rev-parse --short HEAD) -Dusername=${{ secrets.GIT_USER_NAME }} -Dpassword=${{ secrets.GIT_TOKEN }}
       env:
-        GIT_USER_NAME: ${{ secrets.GHUBUILDSER }}
-        GIT_USER_EMAIL: ${{ secrets.GHBUILDEMAIL }}
-        GITPW: ${{ secrets.GHOAUTH_SECRET_TOKEN }}
+        GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+        GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+        GITPW: ${{ secrets.GIT_TOKEN }}
